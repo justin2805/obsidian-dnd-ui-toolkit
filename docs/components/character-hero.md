@@ -37,7 +37,7 @@ healthpoints: |
 
 Use `portrait: https://...` for an external image URL, or a vault path / `[[wiki link]]` to a file in the vault (png/jpg/gif/webp supported).
 
-`heading` and badge fields support the same [dynamic content](/concepts/dynamic-content) `{{ ... }}` templates as other components; the heading updates when frontmatter changes (if it contains templates).
+`heading` and badge fields support the same [dynamic content](/concepts/dynamic-content) `\{\{ ... \}\}` templates as other components; the heading updates when frontmatter changes (if it contains templates).
 
 ## Configuration
 

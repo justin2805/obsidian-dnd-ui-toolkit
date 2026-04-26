@@ -85,11 +85,3 @@ jobs:
             --title="v$VERSION" \
             --generate-notes \
             main.js manifest.json styles.css
-
-  deploy-docs:
-    needs: release
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    uses: ./.github/workflows/deploy-docs.yml

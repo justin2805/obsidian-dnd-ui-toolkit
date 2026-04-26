@@ -79,5 +79,4 @@ npm run format        # Format code with Prettier
 npm run lint          # Lint with ESLint
 npm run typecheck     # Run TypeScript type checking
 task check            # Run all checks (format, lint, typecheck, test)
-npm run docs:dev      # Start documentation dev server
 ```

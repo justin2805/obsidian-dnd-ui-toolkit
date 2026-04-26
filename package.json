@@ -12,10 +12,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit --skipLibCheck",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "test:watch": "vitest"
   },
   "keywords": [],
   "author": "",
