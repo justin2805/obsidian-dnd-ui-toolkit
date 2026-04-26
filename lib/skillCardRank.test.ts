@@ -1,10 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {
-  clampSkillRank,
-  effectiveSkillRank,
-  parseSkillRank,
-  rankFromProficiencyString,
-} from "./skillCardRank";
+import { clampSkillRank, effectiveSkillRank, parseSkillRank, rankFromProficiencyString } from "./skillCardRank";
 import type { SkillItem } from "./types";
 
 const base: SkillItem = { label: "A", ability: "STR", modifier: 0 };

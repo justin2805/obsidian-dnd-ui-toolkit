@@ -55,21 +55,14 @@ function decreaseGoal(index: number) {
       <div class="dnd-ui-generic-card-label">Goals</div>
       <div v-if="(props.static.goals || []).length === 0" class="dnd-ui-purpose-goals-empty">-</div>
       <div v-else class="dnd-ui-purpose-goals-list">
-        <div
-          v-for="(goal, index) in props.static.goals"
-          :key="`${goal}-${index}`"
-          class="dnd-ui-purpose-goals-row"
-        >
+        <div v-for="(goal, index) in props.static.goals" :key="`${goal}-${index}`" class="dnd-ui-purpose-goals-row">
           <div class="dnd-ui-purpose-goals-goal">{{ goal }}</div>
           <div class="dnd-ui-purpose-goals-controls">
             <div class="dnd-ui-purpose-goals-dots" :aria-label="`Progress for ${goal}`">
               <span
                 v-for="dot in MAX_GOAL_DOTS"
                 :key="dot"
-                :class="[
-                  'dnd-ui-purpose-goals-dot',
-                  { 'dnd-ui-purpose-goals-dot-filled': dot <= goalValue(index) },
-                ]"
+                :class="['dnd-ui-purpose-goals-dot', { 'dnd-ui-purpose-goals-dot-filled': dot <= goalValue(index) }]"
               />
             </div>
             <button

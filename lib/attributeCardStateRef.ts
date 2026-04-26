@@ -13,4 +13,3 @@ export function readPathValue(source: unknown, path: string): unknown {
   }
   return cur;
 }
-

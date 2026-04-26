@@ -65,9 +65,7 @@ class RawSkillsMarkdown extends VueMarkdown {
           .map((r) => ({
             id: String(r.id).trim().toLowerCase(),
             label: typeof r.label === "string" ? r.label : undefined,
-            skills: Array.isArray(r.skills)
-              ? r.skills.map((x) => String(x).trim().toLowerCase()).filter(Boolean)
-              : [],
+            skills: Array.isArray(r.skills) ? r.skills.map((x) => String(x).trim().toLowerCase()).filter(Boolean) : [],
           }))
       : [];
 

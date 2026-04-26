@@ -42,7 +42,9 @@ function realmFromAbility(ability: string): RealmKey {
 }
 
 function realmForItem(item: SkillItem): RealmKey {
-  const normalized = String(item.label || "").trim().toLowerCase();
+  const normalized = String(item.label || "")
+    .trim()
+    .toLowerCase();
   return labelToRealm[normalized] || realmFromAbility(item.ability);
 }
 
@@ -51,9 +53,7 @@ const groupedRealms = computed<RealmGroup[]>(() => {
     const configured = props.realms.map((r) => ({
       id: String(r.id).trim().toLowerCase(),
       label: (r.label || r.id || "").toString(),
-      skills: Array.isArray(r.skills)
-        ? r.skills.map((x) => String(x).trim().toLowerCase()).filter(Boolean)
-        : [],
+      skills: Array.isArray(r.skills) ? r.skills.map((x) => String(x).trim().toLowerCase()).filter(Boolean) : [],
     }));
 
     const byId: Record<string, SkillItem[]> = {};
@@ -72,7 +72,9 @@ const groupedRealms = computed<RealmGroup[]>(() => {
 
     for (const item of props.items) {
       const explicit = item.realm ? String(item.realm).trim().toLowerCase() : "";
-      const normalized = String(item.label || "").trim().toLowerCase();
+      const normalized = String(item.label || "")
+        .trim()
+        .toLowerCase();
       const matchedRealmId = explicit || normalizedToRealm.get(normalized) || configured[0].id;
       if (!byId[matchedRealmId]) {
         byId[matchedRealmId] = [];
@@ -112,12 +114,12 @@ function rankForItem(item: SkillItem): number {
 <template>
   <div class="dnd-ui-skills-grid">
     <div class="dnd-ui-skills-realms-grid">
-      <section
-        v-for="realm in groupedRealms"
-        :key="realm.key"
-        class="dnd-ui-skill-realm"
-      >
-        <div v-for="(item, index) in realm.items" :key="`${realm.key}-${index}-${item.label}`" class="dnd-ui-skill-card">
+      <section v-for="realm in groupedRealms" :key="realm.key" class="dnd-ui-skill-realm">
+        <div
+          v-for="(item, index) in realm.items"
+          :key="`${realm.key}-${index}-${item.label}`"
+          class="dnd-ui-skill-card"
+        >
           <p class="dnd-ui-skill-left">
             <span class="dnd-ui-skill-modifier">{{ item.modifier }}</span>
             <span class="dnd-ui-skill-name">{{ item.label }}</span>

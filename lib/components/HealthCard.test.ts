@@ -61,12 +61,8 @@ describe("HealthCard", () => {
       }),
     });
 
-    const restoreButton = wrapper
-      .findAll("button.dnd-ui-health-heal")
-      .find((b) => b.text().trim() === "Restore");
-    const loseButton = wrapper
-      .findAll("button.dnd-ui-health-damage")
-      .find((b) => b.text().trim() === "Lose");
+    const restoreButton = wrapper.findAll("button.dnd-ui-health-heal").find((b) => b.text().trim() === "Restore");
+    const loseButton = wrapper.findAll("button.dnd-ui-health-damage").find((b) => b.text().trim() === "Lose");
 
     expect(restoreButton).toBeDefined();
     expect(loseButton).toBeDefined();

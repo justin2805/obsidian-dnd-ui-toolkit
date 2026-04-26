@@ -16,9 +16,7 @@ function mapCell(item: any): AttributeCardCell {
     header_value: item?.header_value,
     value: item?.value ?? "",
     value_state:
-      item?.value_state &&
-      typeof item.value_state.state_key === "string" &&
-      typeof item.value_state.path === "string"
+      item?.value_state && typeof item.value_state.state_key === "string" && typeof item.value_state.path === "string"
         ? {
             state_key: String(item.value_state.state_key),
             path: String(item.value_state.path),
@@ -114,10 +112,7 @@ class AttributeCardsMarkdown extends VueMarkdown {
     );
   }
 
-  private async resolveCell(
-    cell: AttributeCardCell,
-    stateCache: Map<string, unknown>
-  ): Promise<AttributeCardCell> {
+  private async resolveCell(cell: AttributeCardCell, stateCache: Map<string, unknown>): Promise<AttributeCardCell> {
     if (!cell.value_state?.state_key || !cell.value_state?.path) {
       return cell;
     }

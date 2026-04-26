@@ -19,4 +19,3 @@ describe("attributeCardStateRef", () => {
     expect(readPathValue(state, "foo.bar")).toBeUndefined();
   });
 });
-

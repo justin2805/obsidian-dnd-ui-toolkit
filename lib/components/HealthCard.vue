@@ -228,7 +228,10 @@ function getHitDiceUsed(hd: { dice: string; value: number }): number {
             </div>
           </div>
           <div class="dnd-ui-health-progress-container">
-            <div class="dnd-ui-health-progress-bar" :style="{ width: `${resourcePercentage(resource.key, resource.max)}%` }" />
+            <div
+              class="dnd-ui-health-progress-bar"
+              :style="{ width: `${resourcePercentage(resource.key, resource.max)}%` }"
+            />
           </div>
           <div class="dnd-ui-health-controls dnd-ui-health-resource-controls">
             <input

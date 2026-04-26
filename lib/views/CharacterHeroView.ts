@@ -38,9 +38,7 @@ function buildBadgesBlock(
   const items = itemsRaw as Array<Record<string, unknown>>;
 
   const isTemplate = hasBadgeTemplates(items);
-  const templateContext: TemplateContext | null = isTemplate
-    ? createTemplateContext(containerEl, fileContext)
-    : null;
+  const templateContext: TemplateContext | null = isTemplate ? createTemplateContext(containerEl, fileContext) : null;
 
   const gridColumns = badgesRoot?.grid;
   const columns = gridColumns && typeof gridColumns.columns === "number" ? gridColumns.columns : undefined;
@@ -170,28 +168,22 @@ class CharacterHeroPanel extends MarkdownRenderChild {
     }
 
     if (badgesData && Array.isArray(badgesData.items) && badgesData.items.length) {
-      const { block, isTemplate } = buildBadgesBlock(
-        badgesData,
-        this.containerEl,
-        this.fileContext
-      );
+      const { block, isTemplate } = buildBadgesBlock(badgesData, this.containerEl, this.fileContext);
       const badgesVm = new VueMarkdown(badgesHost);
       badgesVm.mount(BadgesRow, { data: block });
       this.addChild(badgesVm);
 
       if (isTemplate) {
         const rerender = () => {
-          const next = buildBadgesBlock(
-            badgesData!,
-            this.containerEl,
-            this.fileContext
-          );
+          const next = buildBadgesBlock(badgesData!, this.containerEl, this.fileContext);
           badgesVm.mount(BadgesRow, { data: next.block });
         };
         this.unsubs.push(
           this.fileContext.onFrontmatterChange(() => {
             rerender();
-            const t = hasTemplateVariables(heading) ? processTemplate(heading, createTemplateContext(this.containerEl, this.fileContext)) : heading;
+            const t = hasTemplateVariables(heading)
+              ? processTemplate(heading, createTemplateContext(this.containerEl, this.fileContext))
+              : heading;
             headingRow.setText(t);
           })
         );
@@ -216,8 +208,7 @@ class CharacterHeroPanel extends MarkdownRenderChild {
     if (parsed.healthpoints == null) {
       return;
     }
-    const healthStr =
-      typeof parsed.healthpoints === "string" ? parsed.healthpoints : stringify(parsed.healthpoints);
+    const healthStr = typeof parsed.healthpoints === "string" ? parsed.healthpoints : stringify(parsed.healthpoints);
     if (!String(healthStr).trim()) {
       return;
     }
